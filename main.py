@@ -2,6 +2,8 @@
 
 import pygame as pg
 import random, time
+import asyncio
+
 pg.init()
 clock = pg.time.Clock()
 
@@ -29,21 +31,21 @@ obj_size = 57
 obj_data = []
 
 # Load in and scale player image
-player_image = pg.image.load('C:/MyFiles/pyproj/pygame_env/HPPS/Bowl.png').convert_alpha()
+player_image = pg.image.load('./assets/images/Bowl.png').convert_alpha()
 player_image = pg.transform.scale(player_image,
                                   (player_size, player_size))
 
 # Load in and scale object image
-obj = pg.image.load('C:/MyFiles/pyproj/pygame_env/HPPS/bread_pudding2.png').convert_alpha()
+obj = pg.image.load('./assets/images/bread_pudding2.png').convert_alpha()
 obj = pg.transform.scale(obj, (obj_size, obj_size))
 
 heart_size = 60
 heart_data = []
-heart = pg.image.load('C:/MyFiles/pyproj/pygame_env/HPPS/cute_strawberry_jelly.png').convert_alpha()
+heart = pg.image.load('./assets/images/cute_strawberry_jelly.png').convert_alpha()
 heart = pg.transform.scale(heart, (heart_size, heart_size))
 
 # Load in and scale background image
-bg_image = pg.image.load('C:/MyFiles/pyproj/pygame_env/HPPS/kitchen_background.jpg').convert_alpha()
+bg_image = pg.image.load('./assets/images/kitchen_background.jpg').convert_alpha()
 bg_image = pg.transform.scale(bg_image, (win_width, win_height))
 
 
@@ -130,7 +132,7 @@ def heart_check(heart_data, player_pos):
 
 ''' ---------- EVENT HANDLERS ---------- '''
 
-def main():
+async def main():
     global player_pos, running
 
     while running:
@@ -165,5 +167,6 @@ def main():
 
         clock.tick(30)
         pg.display.update()
+        await asyncio.sleep(0)
 
-main()
+asyncio.run(main())
