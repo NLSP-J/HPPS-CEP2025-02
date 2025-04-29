@@ -45,7 +45,7 @@ heart = pg.image.load('./assets/images/cute_strawberry_jelly.png').convert_alpha
 heart = pg.transform.scale(heart, (heart_size, heart_size))
 
 # Load in and scale background image
-bg_image = pg.image.load('./assets/images/kitchen_background.jpg').convert_alpha()
+bg_image = pg.image.load('./assets/images/kitchen_background.png').convert_alpha()
 bg_image = pg.transform.scale(bg_image, (win_width, win_height))
 
 
